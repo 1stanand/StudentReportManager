@@ -1,18 +1,39 @@
+# Student Report Manager
+
+A simple console-based Java application to manage student records. The program allows you to register students, view all registered students, search for specific students, and update existing records.
+
+## Features
+
+- Add new students with roll number, name, and marks.
+- View a list of all registered students.
+- Search for a student by name or roll number.
+- Update existing student details.
+- User-friendly text-based menu.
+
 ## Getting Started
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+### Prerequisites
+- Java 11 or higher
 
-## Folder Structure
+### Compile
+```bash
+javac $(find src -name "*.java")
+```
 
-The workspace contains two folders by default, where:
+### Run
+```bash
+java -cp src MainApp.App
+```
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Project Structure
+```
+src/
+ ├─ MainApp/          # Application entry point and menus
+ ├─ Services/         # Business logic for managing students
+ ├─ Student/          # Student model
+ └─ Utils/            # Helper utilities for input handling
+```
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+## License
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+This project is provided for educational purposes.

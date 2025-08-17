@@ -1,6 +1,5 @@
 package Services;
 
-import java.util.Scanner;
 
 import MainApp.Menu;
 import Student.Student;
@@ -23,8 +22,12 @@ public class StudentServices {
 
     public void showAllStudents() {
         System.out.println("_____________________________________________________________________");
-        for (int i = 0; i < count; i++) {
-            students[i].displayStudent();
+        if (count == 0) {
+            System.out.println("No students have been added yet.");
+        } else {
+            for (int i = 0; i < count; i++) {
+                students[i].displayStudent();
+            }
         }
         System.out.println("_____________________________________________________________________");
     }
@@ -40,6 +43,7 @@ public class StudentServices {
                 searchByRollNumber();
                 break;
             default:
+                System.out.println("Invalid option! Returning to main menu.");
                 break;
         }
 
@@ -47,10 +51,7 @@ public class StudentServices {
 
     private void searchByName() {
         System.out.println("_____________________________________________________________________");
-        System.out.print("Enter the Name of Student: ");
-        Scanner scanner = new Scanner(System.in);
-        String name = scanner.nextLine();
-        scanner.close();
+        String name = HelperClass.readLine("Enter the Name of Student: ");
         boolean found = false;
         for (int i = 0; i < count; i++) {
             if (students[i].getName().equalsIgnoreCase(name)) {
@@ -83,5 +84,26 @@ public class StudentServices {
         }
         System.out.println("_____________________________________________________________________");
 
+    }
+
+    public void updateStudent() {
+        System.out.println("_____________________________________________________________________");
+        int roll = HelperClass.readInt("Enter the Roll Number of the student to update: ");
+        boolean found = false;
+        for (int i = 0; i < count; i++) {
+            if (students[i].getRoll_no() == roll) {
+                String name = HelperClass.readLine("Enter new name: ");
+                int marks = HelperClass.readInt("Enter new marks: ");
+                students[i].setName(name);
+                students[i].setMarks(marks);
+                System.out.println("Student Updated Successfully!");
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            System.out.println("Student With Roll Number " + roll + " has Not yet been Added");
+        }
+        System.out.println("_____________________________________________________________________");
     }
 }
