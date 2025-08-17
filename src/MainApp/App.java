@@ -25,7 +25,13 @@ public class App {
                 case 3:
                     st.searchStudent();
                     break;
+                case 4:
+                    st.updateStudent();
+                    break;
                 default:
+                    if (choice != 0) {
+                        System.out.println("Invalid choice! Please try again.");
+                    }
                     break;
             }
         } while (choice != 0);

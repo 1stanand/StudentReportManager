@@ -10,14 +10,17 @@ public class HelperClass {
     public Student addStudent() {
         Student student = new Student();
         int roll = readInt("Enter Roll Number: ");
-        sc.nextLine();
-        System.out.print("Enter Name: ");
-        String name = sc.nextLine();
+        String name = readLine("Enter Name: ");
         int marks = readInt("Enter Marks: ");
         student.setName(name);
         student.setRoll_no(roll);
         student.setMarks(marks);
         return student;
+    }
+
+    public static String readLine(String prompt) {
+        System.out.print(prompt);
+        return sc.nextLine();
     }
 
     public static int readInt(String prompt) {
@@ -28,8 +31,8 @@ public class HelperClass {
                 sc.nextLine(); // consume leftover newline
                 return num;
             } else {
-                System.out.print("⚠️ Invalid input! Please enter a number.");
-                sc.nextLine(); // discard the bad input1
+                System.out.println("⚠️ Invalid input! Please enter a number.");
+                sc.nextLine(); // discard the bad input
             }
         }
     }
